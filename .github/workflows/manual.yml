@@ -1,6 +1,6 @@
 name: Manual
 on: 
-  workflow_dispatch:
+  workflow_dispatch: # 手動実行
     inputs:
       log-level:
         type: choice

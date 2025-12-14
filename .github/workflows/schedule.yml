@@ -1,7 +1,7 @@
 name: Schedule
 on:
-  schedule:
-    - cron: '*/5 * * * *'
+  schedule: # 定期実行
+    - cron: '*/5 * * * *' # 5分ごと実行
 
 jobs:
   run:
