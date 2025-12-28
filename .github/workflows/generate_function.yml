@@ -1,0 +1,15 @@
+name: Generate functions
+on:
+  push:
+    paths:
+      - '.github/workflows/generate_function.yml'
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - run: printenv | grep "_FUNC"
+        env:
+          FORMAT_FUNC: ${{format('{0},{1}.', 'Hi', 'world')}}  # フォーマットで文字列を生成
+          JOIN_FUNC: ${{join(github.event.*.html_url, ',')}} # カンマで結合
+
