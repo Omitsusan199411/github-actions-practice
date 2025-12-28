@@ -1,0 +1,14 @@
+name: Hash functions
+on:
+  push:
+    paths:
+      - '.github/workflows/hash_function.yml'
+
+jobs:
+  hash:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/chechout@v4
+      - run: echo "${HASH}"
+        env:
+          HASH: ${{hashFiles('github/workflows/*.yml')}} # 引数のファイルからハッシュ値を生成
