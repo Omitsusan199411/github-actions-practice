@@ -3,7 +3,7 @@ on:
   push:
     paths:
       - '.github/workflows/status_check_function.yml'
-	
+
 jobs:
   fail:
     runs-on: ubuntu-latest
