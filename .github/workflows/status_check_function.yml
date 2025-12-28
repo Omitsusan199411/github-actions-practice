@@ -1,0 +1,14 @@
+name: Status check functions
+on:
+  push:
+    paths:
+      - '.github/workflows/status_check_function.yml'
+	
+jobs:
+  fail:
+    runs-on: ubuntu-latest
+    steps:
+      - run: exit 1 # 終了ステータスを0以外にして失敗したようにする
+      - run: echo "Hello"
+        if: ${{failure()}} # 直前でstepが失敗した場合にechoHelloを実行する
+
