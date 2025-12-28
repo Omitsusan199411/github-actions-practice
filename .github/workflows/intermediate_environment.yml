@@ -1,0 +1,12 @@
+# 中間環境変数を使ってコンテキストの値を渡す
+
+name: Intermediate environment variables
+on: push
+
+jobs:
+  print:
+    runs-on: ubuntu-latest
+    env:
+      ACTOR: ${{ github.actor }} # コンテキストの値を環境変数へセット
+    steps:
+      - run: echo "${ACTOR}" # 環境変数経由でコンテキストのプロパティを参照
