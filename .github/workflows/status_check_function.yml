@@ -10,5 +10,5 @@ jobs:
     steps:
       - run: exit 1 # 終了ステータスを0以外にして失敗したようにする
       - run: echo "Hello"
-        if: ${{failure()}} # 直前でstepが失敗した場合にechoHelloを実行する
+        if: ${{failure()}} # 直前でstepが失敗した場合にHelloを出力する
 
