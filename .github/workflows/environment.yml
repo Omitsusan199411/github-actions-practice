@@ -1,5 +1,8 @@
 name: Environment variables
-on: push
+on:
+  push:
+    paths:
+      - '.github/workflows/environment.yml'
 
 jobs:
   run:
