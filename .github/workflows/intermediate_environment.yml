@@ -1,7 +1,10 @@
 # 中間環境変数を使ってコンテキストの値を渡す
 
 name: Intermediate environment variables
-on: push
+on:
+  push:
+    paths:
+      - '.github/workflows/intermediate_environment.yml'
 
 jobs:
   print:
