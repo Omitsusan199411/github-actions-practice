@@ -11,4 +11,4 @@ jobs:
       - uses: actions/checkout@v4
       - run: echo "${HASH}"
         env:
-          HASH: ${{hashFiles('github/workflows/*.yml')}} # 引数のファイルからハッシュ値を生成
+          HASH: ${{hashFiles('.github/workflows/*.yml')}} # 引数のファイルからハッシュ値を生成
