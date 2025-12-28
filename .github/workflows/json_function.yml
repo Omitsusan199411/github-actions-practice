@@ -1,0 +1,13 @@
+name: JSON functions
+on:
+  push:
+    paths:
+      - '.github/workflows/json_function.yml'
+
+jobs:
+  dump:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "${CONTEXT}"
+        env:
+          CONTEXT: ${{toJSON(github)}} # githubコンテキストをJSON文字列でダンプ
