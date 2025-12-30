@@ -6,9 +6,10 @@ on:
 jobs:
   comment:
     runs-on: ubuntu-latest
-    permissions: # GITHUB_TOKENの権限を設定（GitHub Actionsが自動生成する認証トークン。ワークフロー実行中にGitHub APIとやりとりするために必要）
-      pull-requests: write # プルリクエストの書き込みを許可
-      contents: read # ソースコードの読み込みを許可
+    # permissions: # GITHUB_TOKENの権限を設定（GitHub Actionsが自動生成する認証トークン。ワークフロー実行中にGitHub APIとやりとりするために必要）
+    #   pull-requests: write # プルリクエストの書き込みを許可
+    #   contents: read # ソースコードの読み込みを許可
+    permissions: read-all # 読み込み権限をまとめて付与
     steps:
       - uses: actions/checkout@v4
       - run: gh pr comment "${GITHUB_HEAD_REF}" --body "Hello, ${GITHUB_ACTOR}" # プルリクにコメントを追加。${GITHUB_HEAD_REF}はPRの元ブランチを指し、pull_requestトリガーの時のみ値が入る
