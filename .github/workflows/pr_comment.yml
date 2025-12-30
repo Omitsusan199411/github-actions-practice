@@ -11,6 +11,6 @@ jobs:
       contents: read # ソースコードの読み込みを許可
     steps:
       - uses: actions/checkout@v4
-      - run: gh pr comment "${GITHUB_HEAD_REF}" --body "Hello, ${GITHUB_ACTOR}" # プルリクにコメントを追加。${GITHUB_HEAD_REF}はPRの元ブランチを指す。
+      - run: gh pr comment "${GITHUB_HEAD_REF}" --body "Hello, ${GITHUB_ACTOR}" # プルリクにコメントを追加。${GITHUB_HEAD_REF}はPRの元ブランチを指し、pull_requestトリガーの時のみ値が入る
         env:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}} # GitHub CLI用クレデンシャルをセット
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}} # GitHub Actionsが自動生成する認証トークンをGITHUB_TOKEN環境変数にセットすることで、GitHub CLIがGitHub Actionsの認証を行い、機能を使えるようにするため
