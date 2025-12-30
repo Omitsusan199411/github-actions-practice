@@ -1,0 +1,13 @@
+name: Naming
+on:
+  push:
+    paths:
+      - '.github/workflows/job_name_and_step_name.yml'
+
+jobs:
+  print:
+    name: Super Useful Job # ジョブ名を指定
+    runs-on: ubuntu-latest
+    steps:
+      - name: Amazing Script # ステップ名の指定
+        run: echo "Hello"
