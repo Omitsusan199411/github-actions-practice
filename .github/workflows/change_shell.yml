@@ -6,7 +6,7 @@ jobs:
   print:
     runs-on: ubuntu-latest
     steps:
-      - shell: bash
+      - shell: bash # ステップごとにシェルを指定できる
         run: echo "${SHELL}"
       - shell: python
         run: |
