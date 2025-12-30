@@ -6,7 +6,7 @@ on:
 
 jobs:
   skip-or-run:
-    if: ${{ github.actor == 'octocat' }}
+    if: ${{ github.actor == 'Omitsusan199411' }}
     runs-on: ubuntu-latest # githubアカウントがoctocatの場合のみ以下を実行する
     steps:
       - run: echo "Hello"  
