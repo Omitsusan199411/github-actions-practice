@@ -1,0 +1,12 @@
+name: GITHUB_ENV
+on:
+  push:
+    paths:
+      - '.github/workflows/github_env.yml'
+
+jobs:
+  share:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "RESULT=hello" >> "${GITHUB_ENV}" # RESULT=helloのキー&バリュー形式をGITHUB_ENVへセットする
+      - run: echo "${RESULT}" # 通常の環境変数として参照
