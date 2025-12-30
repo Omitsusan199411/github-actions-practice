@@ -1,0 +1,12 @@
+name: Missing share data # steps間のデータの受け渡しに失敗する例
+on:
+  push:
+    paths:
+      - '.github/workflows/missing_share_data.yml'
+
+jobs:
+  share:
+    runs-on: ubuntu-latest
+    steps:
+      - run: export RESULT="hello" # 次のステップへ環境変数で値を渡そうとする
+      - run: echo "${RESULT}" # 環境変数を受け渡そうとしても空文字になる
