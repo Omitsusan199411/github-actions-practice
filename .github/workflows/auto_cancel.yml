@@ -1,5 +1,9 @@
 name: Auto cancel
-on: pull_request
+on:
+  push:
+    paths:
+      - '.github/workflows/auto_cancel.yml'
+	  
 concurrency:
   group: ${{ github.workflow }}-${{github.ref}}
   cancel-in-progress: true # 同一のワークフローが多重起動した場合は、古い方のワークフローを停止し、新しい方のワークフローを起動する
