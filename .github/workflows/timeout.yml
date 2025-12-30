@@ -1,0 +1,12 @@
+name: Timeout
+on:
+  push:
+    paths:
+      - '.github/workflows/timeout.yml'
+
+jobs:
+  sleep:
+    runs-on: ubuntu-latest
+    timeout-minutes: 1 # ワークフローのタイムアウトを１分に設定
+    steps:
+      - run: sleep 120 # 2分（120秒）スリープさせる
