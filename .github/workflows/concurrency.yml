@@ -1,5 +1,9 @@
 name: Concurrency
-on: push
+on:
+  push:
+    paths:
+      - '.github/workflows/concurrency.yml'
+  
 
 concurrency: ${{ github.workflow }} # Concurrencyグループへワークフロー名を指定することでワークフローの多重起動を防ぐ
 
