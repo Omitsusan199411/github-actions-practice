@@ -1,0 +1,12 @@
+name: Run name
+run-name: Run by @${{github.actor}} # ワークフローの実行名を指定できる（run-nameキーとnameキーの違いは、githubコンテキストを利用できるかできないか）
+on:
+  push:
+    paths:
+      - '.github/workflows/run_name.yml'
+
+jobs:
+  print:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Hello"
