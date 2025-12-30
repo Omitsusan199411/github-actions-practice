@@ -1,0 +1,13 @@
+name: Conditions workflow
+on:
+  push:
+    paths:
+      - '.github/workflows/conditions_workflow.yml'
+
+jobs:
+  skip-or-run:
+	# githubアカウントがoctocatの場合のみ実行する
+    if: ${{ github.actor == 'octocat' }}
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Hello"  
