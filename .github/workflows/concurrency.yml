@@ -1,0 +1,10 @@
+name: Concurrency
+on: push
+
+concurrency: ${{ github.workflow }} # Concurrencyグループへワークフロー名を指定することでワークフローの多重起動を防ぐ
+
+jobs:
+  sleep:
+    runs-on: ubuntu-latest
+    steps:
+      - run: sleep 120
