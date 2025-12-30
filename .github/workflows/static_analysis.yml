@@ -1,0 +1,21 @@
+name: Static analysis
+on:
+  pull_request:
+    paths: [".github/workflows/*.yml", ".gihub/workflows/*.yaml"]
+
+defaults: # デフォルトシェル： パイプエラー（中間エラー）を拾えるようにBashの起動オプションを変更
+  run:
+    shell: bash # ワークフロー内のすべてのrunステップのデフォルトシェルをbashに変更
+
+concurrency: # 自動キャンセル
+  group: ${{github.workflow}}-${{github.ref}}
+  cancel-in-progress: true
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5 # ワークフローの実行時間が5分超えたら停止する
+    steps:
+      - uses: actions/checkout@v4
+      - run: | # GitHub Actionsのワークフローに対してactionlintで静的解析をかける
+          docker run --rm -v "$(pwd):$(pwd)" -w "$(pwd)" rhysd/actionlint:latest
