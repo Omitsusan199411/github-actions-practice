@@ -7,6 +7,7 @@ on:
 jobs:
   log_group:
     runs-on: ubuntu-latest
+	# ログの表示をロググループでまとめる
     steps:
       - run: |
           echo "::group::Show environment variables"
