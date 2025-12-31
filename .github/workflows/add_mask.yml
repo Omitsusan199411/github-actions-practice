@@ -10,5 +10,5 @@ jobs:
     env:
       PASSWORD: SuperSecretValue
     steps:
-      - run: echo "::add-mask::${PASSWORD}"
-      
+      - run: echo "::add-mask::${{ env.PASSWORD }}"
+      - run: echo "Password is ${PASSWORD}"
