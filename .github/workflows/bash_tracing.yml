@@ -1,0 +1,15 @@
+name: Bash tracing
+on:
+  push:
+    paths:
+      - ".github/workflows/bash_tracing.yml"
+
+jobs:
+  debug:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Bash tracing
+        run: |
+          set -x
+          date
+          hostname
