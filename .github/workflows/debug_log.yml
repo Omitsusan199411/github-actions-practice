@@ -1,0 +1,12 @@
+name: Debug log
+on:
+  push:
+   paths:
+     - '.github/workflows/debug_log.yml'
+
+jobs:
+  log:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "::debug::This is a debug log" # デバッグログ有効時に出力する（ただし、GitHubのEnable debug loggingへチェックを入れる必要がある）
+	  
