@@ -6,7 +6,7 @@ on:
       - .github/workflows/log_group.yml'
 
 jobs:
-  log_group:
+  log-group:
     runs-on: ubuntu-latest
     steps:
       - run: |
