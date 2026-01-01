@@ -14,10 +14,10 @@ jobs:
           key: test-${{runner.os}}-${{github.sha}} # キャッシュキーを設定（キャッシュの生成と保存に使用する識別子。キャッシュキーはOSごとに分離した方がバグが出ない）
           path: ${{github.workspace}}/dummy # キャッシュ対象のパス（キャッシュ対象のディレクトリパスもしくはファイルパスを指定する）。github.workspace = /home/runner/work/github-actions-practice/github-actions-practice
           restore-keys:
-            | # リストアキーを設定（キャッシュミス時のリストアキーを複数指定する）
+            | # リストアキーを設定（キャッシュミス時のリストアキーを複数指定する）。上記のkeyでキャッシュが探せなかった場合にリストアキーの接頭辞が一致するキャッシュを探しに行く
             test-${{runner.os}}-
-      - run: | # ${GITHUB_WORKSPACE}/dummyにファイルがなければ、10MBのダミーファイルを作る。あればワークフロー終了
+      - run: | # ${GITHUB_WORKSPACE}/dummyにファイルがなければ、10MBのダミーファイルを作る。
           if [[ -f "${GITHUB_WORKSPACE}/dummy" ]]; then exit 0; fi
           dd if=/dev/urandom of="${GITHUB_WORKSPACE}/dummy" bs=1M count=10
           sleep 30
-      - run: ls -lh "${GITHUB_WORKSPACE}/dummy" # dummyファイルを作成した時のみls -lhを実行する
+      - run: ls -lh "${GITHUB_WORKSPACE}/dummy"
