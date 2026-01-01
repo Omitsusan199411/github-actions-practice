@@ -12,11 +12,11 @@ jobs:
       - uses: actions/cache@v4
         with:
           key: test-${{runner.os}}-${{github.sha}} # キャッシュキーを設定（キャッシュの生成と保存に使用する識別子。キャッシュキーはOSごとに分離した方がバグが出ない）
-          path: ${{github.workspace}}/dummy # キャッシュ対象のパス（キャッシュ対象のディレクトリパスもしくはファイルパスを指定する）
+          path: ${{github.workspace}}/dummy # キャッシュ対象のパス（キャッシュ対象のディレクトリパスもしくはファイルパスを指定する）。github.workspace = /home/runner/work/github-actions-practice/github-actions-practice
           restore-keys:
             | # リストアキーを設定（キャッシュミス時のリストアキーを複数指定する）
             test-${{runner.os}}-
-      - run: |
+      - run: | # ${GITHUB_WORKSPACE}/dummyにファイルがなければ、10MBのダミーファイルを作る
           if [[ -f "${GITHUB_WORKSPACE}/dummy" ]]; then exit 0; fi
           dd if=/dev/urandom of="${GITHUB_WORKSPACE}/dummy" bs=1M count=10
           sleep 30
