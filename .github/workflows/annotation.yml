@@ -1,0 +1,13 @@
+name: Annotation
+on:
+  push:
+    paths:
+      - '.github/workflows/annotation.yml'
+
+jobs:
+  log:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "::error::This is an error" # Errorレベルのアノテーション
+      - run: echo "::warning::This is a waring" # warningレベルのアノテーション
+      - run: echo "::notice::This is a notice" # noticeレベルのアノテーション
