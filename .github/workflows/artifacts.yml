@@ -23,6 +23,3 @@ jobs:
           name: uploaded # アーティファクト名
           path: downloaded # ダウンロード先のパス
       - run: cat downloaded/date.txt # アーティファクトの中身を標準出力
-
-    
-	
