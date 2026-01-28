@@ -1,0 +1,14 @@
+name: Go Test
+on:
+  pull_request:
+    paths: ['go/**/*.go'] # goフォルダ配下のgoファイルが変更した時のみ実行
+
+jobs:
+  go-test:	
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5 # ランナー環境でgo言語を使えるようにするためのセットアップ
+        with:
+          go-version: '1.22'
+      - run: go test go/excellent/*.go # goのテストコマンドを実行
